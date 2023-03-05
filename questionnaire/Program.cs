@@ -6,12 +6,20 @@
 System.Console.Write("Введите количество строк в исходном массиве:  ");
 int size = int.Parse(Console.ReadLine());
 // ввод строк
-string[] array = new string[size];
+string[] InputArray = new string[size];
+string[] OutputArray = new string[size];
 for (int i = 0; i < size; i++)
 {
     System.Console.Write($"Введите {i} элемент массива:  ");
-    array[i] = Console.ReadLine();
+    InputArray[i] = Console.ReadLine();
+    int lenght = InputArray[i].Length;
+     if (lenght < 4) 
+     OutputArray[i] = InputArray [i];
 }
+var array = OutputArray.Where(x => !string.IsNullOrWhiteSpace(x));
 
+Console.Clear();
+Console.WriteLine("Исходный массив [ " + string.Join(", ", InputArray)+" ]");
+Console.WriteLine("Полученный массив [ " + string.Join(", ", array)+" ]");
 
 
